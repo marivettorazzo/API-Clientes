@@ -1,16 +1,18 @@
 const Express = require("express");
 
 const app = Express();
-const port = 3001;
+const port = process.env.PORT;
 const bd = require("./src/infra/sqliteDb")
+const cors = require('cors')
 
 const ClientesControllers = require("./src/controllers/ClientesControllers")// chamando o arquivo para server
 app.use(Express.json()) //  tem que colocar dentro do use com json ("sem a no json")
+app.use(cors())
 ClientesControllers(app,bd)
 
 
 app.listen (port,()=>{ // ativa a porta não pode usar o send no listen
-  console.log("Servidor  rodando na porta 3001")
+  console.log(`Servidor  rodando na porta ${port}`)
 })
 
 
