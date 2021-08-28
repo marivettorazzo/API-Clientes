@@ -1,5 +1,5 @@
 const Express = require("express");
-const portaLocal = 4040
+
 
 const app = Express();
 const port = process.env.PORT;
@@ -12,8 +12,8 @@ app.use(cors())
 ClientesControllers(app,bd)
 
 
-app.listen (portaLocal,()=>{ // ativa a porta não pode usar o send no listen
-  console.log(`Servidor  rodando na porta ${portaLocal}`)
+app.listen (port,()=>{ // ativa a porta não pode usar o send no listen
+  console.log(`Servidor  rodando na porta ${port}`)
 })
 
 
