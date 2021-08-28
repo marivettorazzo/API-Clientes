@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./database.db');
 
-const CLIENTES = `
+const CLIENTES_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "CLIENTES" (
     "Cliente_id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "Nome" varchar(255),
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS "CLIENTES" (
   `
 
 const ADD_CLIENTES_DATA =`
-INSERT OR IGNORE INTO CLIENTES (Cliente_id,Nome,Cep,NumeroRes,Telefone)
+INSERT INTO CLIENTES (Cliente_id,Nome,Cep,NumeroRes,Telefone)
 VALUES 
     (1, 'Eugênio Oliveira', '11122255', '235','17-95252638'),
     (2, 'joão Ribeiro', '66699558', '852','17-956239874'),
@@ -26,7 +26,7 @@ VALUES
 `
 
 function criaTabelaClientes() {
-    db.run(CLIENTES, (error)=> {
+    db.run(CLIENTES_SCHEMA, (error)=> {
        if (error) console.log(`Erro ao criar tabela de usuários${error}`);
     });
 };

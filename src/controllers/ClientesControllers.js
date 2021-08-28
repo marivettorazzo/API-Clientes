@@ -39,7 +39,7 @@ module.exports = (app,bd) => {
         const NumeroRes = req.body.NumeroRes
         const Telefone = req.body.Telefone
         const parametro = [Cep,NumeroRes,Telefone]
-        console.log(parametro)
+        
         const id = parseInt(req.params.id)
         try{ 
             const AtualizarClientes = await DaoClientes.AtualizaClientes(parametro,id)

@@ -30,12 +30,12 @@ module.exports = class ClientesDao{
     adicionarClientes(cadastro){
 
         return new Promise((resolve,reject)=>{
-            this.bd.all(`INSERT OR IGNORE INTO CLIENTES (Cliente_id, Nome, Cep, NumeroRes, Telefone)
-            VALUES (?,?,?,?,?) `,[cadastro.Cliente_id,cadastro.Nome,cadastro.Cep,cadastro.NumeroRes,cadastro.Telefone],(error, response)=>{
+            this.bd.all(`INSERT INTO CLIENTES ( Nome, Cep, NumeroRes, Telefone)
+            VALUES (?,?,?,?) `,[cadastro.Nome,cadastro.Cep,cadastro.NumeroRes,cadastro.Telefone],(error, response)=>{
                 if(error){
                     reject(`Erro ao adicionar cliente ${error}`)
                 } else {
-                    resolve(response)  
+                    resolve("Cliente adicionado")  
                 }
             } 
         )})
