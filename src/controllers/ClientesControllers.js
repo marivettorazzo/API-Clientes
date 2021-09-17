@@ -4,7 +4,7 @@ module.exports = (app,bd) => {
 
     const DaoClientes = new ClientesDao(bd)
 
-    app.get("/Clientes", async (req,res)=>{
+    app.get("/clientes", async (req,res)=>{
         try{
             const resultVerClientes = await DaoClientes.verClientes()
             res.send(resultVerClientes)
@@ -12,7 +12,7 @@ module.exports = (app,bd) => {
             res.send(error)
         }
  })
-    app.delete("/Deletar/:id", async (req,res)=>{
+    app.delete("/deletar/:id", async (req,res)=>{
         
         try{ 
             const id = parseInt(req.params.id)
@@ -33,7 +33,7 @@ module.exports = (app,bd) => {
         }
     })
 
-    app.put("/Atualizar/:id", async (req,res)=>{
+    app.put("/atualizar/:id", async (req,res)=>{
         
         const Cep = req.body.Cep
         const NumeroRes = req.body.NumeroRes
